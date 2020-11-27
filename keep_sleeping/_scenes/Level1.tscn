@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://characters/Player.gd" type="Script" id=2]
+[ext_resource path="res://world/Ground.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 9.28925
+height = 44.7709
+
+[node name="Level1" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+margin_left = 830.619
+margin_top = 381.407
+margin_right = 1030.62
+margin_bottom = 581.407
+color = Color( 0.847059, 0.133333, 0.133333, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Ground" parent="World" instance=ExtResource( 3 )]
+position = Vector2( 1476.28, 917.514 )
+scale = Vector2( 100, 1 )
+
+[node name="Ground2" parent="World" instance=ExtResource( 3 )]
+position = Vector2( 898.469, 850.844 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 913.18, 350.965 )
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="Collider" type="CollisionShape2D" parent="Player"]
+position = Vector2( 0, -32 )
+shape = SubResource( 1 )
+
+[node name="Body" type="Sprite" parent="Player"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0, -32 )
+scale = Vector2( 0.3, 1 )
+texture = ExtResource( 1 )

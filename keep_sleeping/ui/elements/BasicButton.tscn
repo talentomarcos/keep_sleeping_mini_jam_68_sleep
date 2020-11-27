@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://ui/elements/BasicButton.gd" type="Script" id=1]
+[ext_resource path="res://art/ui/my_buttons.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 173, 173 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 196, 0, 173, 173 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 393, 0, 173, 173 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 593, 0, 173, 173 )
+
+[node name="BasicButton" type="TextureButton"]
+margin_right = 173.0
+margin_bottom = 173.0
+texture_normal = SubResource( 1 )
+texture_pressed = SubResource( 2 )
+texture_hover = SubResource( 3 )
+texture_disabled = SubResource( 4 )
+script = ExtResource( 1 )
+path_to_scene_to_be_loaded = "res://_scenes/Level1.tscn"
+[connection signal="button_up" from="." to="." method="_on_button_up"]
